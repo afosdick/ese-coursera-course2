@@ -1,0 +1,35 @@
+/******************************************************************************
+ * Copyright (C) 2017 by Alex Fosdick - University of Colorado
+ *
+ * Redistribution, modification or use of this software in source or binary
+ * forms is permitted as long as the files maintain this copyright. Users are 
+ * permitted to modify this and use it to learn about the field of embedded
+ * software. Alex Fosdick and the University of Colorado are not liable for any
+ * misuse of this material. 
+ *
+ *****************************************************************************/
+
+These commands help you test your output code for inline keyword use.
+   -Inline keyword is a part of the C99 standard, so you will need to explicitly
+    define that
+   -We will use the symbol tool "nm" To show how the main function changes in
+    size when we use inline and when we do not use inline. 
+   -Public inline functions should be specified in the header file (definition)
+  
+-------------------------------------------------------------------------------
+
+Use the following command to compile the code: 
+  $ gcc main.c swap.c -o main.out -std=c99 -DUSE_INLINE
+
+Use the following Command to dump the text section symbols and their size
+  $ nm main.out -S --size-sort
+
+-------------------------------------------------------------------------------
+
+Compare the size of the main symbol when you have disabled inline functionality
+ 
+Use the following command to compile the code: 
+  $ gcc main.c swap.c -o main.out -std=c99
+
+Use the following Command to dump the text section symbols and their size
+  $ nm main.out -S --size-sort
