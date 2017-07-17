@@ -25,20 +25,27 @@
 
 void main(){
   uint8_t i;
+  month m = APRIL;
+
+  printf("Sizeof(month): %ld Bytes\n", sizeof(month));
+  printf("Sizeof(Num_e): %ld Bytes\n", sizeof(Num_e));
+  printf("Sizeof(Boolean_e): %ld Bytes\n", sizeof(Boolean_e));
+  printf("Sizeof(Error_e): %ld Bytes\n", sizeof(Error_e));
+  printf("Sizeof(CB_e): %ld Bytes\n", sizeof(CB_e));
+
   uint8_t array[MAX_ARRAY] = {0, 1, 2, 3};
   CB_e err;
  
   array[-1] = 8;
 
-  printf("sizeof CB_e %ld", sizeof(CB_e));
-
-  printf("Array[-1] = %d\n", array[-1]);
-  printf("&Array = %p\n", &array);
-  printf("&Array[-1] = %p\n", &array[-1]);
+  printf("Example Array Indexing\n");
+  printf("  Array[-1] = %d\n", array[-1]);
+  printf("  &Array = %p\n", &array);
+  printf("  &Array[-1] = %p\n", &array[-1]);
 
   for ( i = 0; i < MAX_ARRAY; i++ )
   {
-    printf("Array[%d] = %d\n", i, array[i]);
+    printf("  Array[%d] = %d\n", i, array[i]);
   }
 
 }

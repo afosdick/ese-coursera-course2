@@ -9,22 +9,20 @@
  *
  *****************************************************************************/
 /** 
- * @file struct.h
- * @brief Definitions of example aligned data structures for C2M1V5 demos
+ * @file UNION.h
+ * @brief Definitions of example of unions for C2M3V3 demos
  *
  * @author Alex Fosdick
  * @date April 15 2017
  *
  */
-#ifndef __STRUCT_H__
-#define __STRUCT_H__
+#ifndef __UNION_H__
+#define __UNION_H__
 
 #include <stdint.h>
 
 
-/**
-  \brief  Union type to access the Interrupt Program Status Register (IPSR).
- */
+/* Union type to access the Interrupt Program Status Register (IPSR). */
 typedef union
 {
   struct
@@ -35,7 +33,7 @@ typedef union
   uint32_t w;                            /*!< Type      used for word access */
 } IPSR_Type;
 
-
+/* Union type to access the Application Program Status Register (APSR). */
 typedef union
 {
   struct
@@ -52,9 +50,7 @@ typedef union
   uint32_t w;                 /*!< Type      used for word access */
 } APSR_Type;
 
-/**
-  \brief  Union type to access the Control Registers (CONTROL).
- */
+/*  Union type to access the Control Registers (CONTROL).*/
 typedef union
 {
   struct
@@ -67,12 +63,14 @@ typedef union
   uint32_t w;                 /*!< Type      used for word access */
 } CONTROL_Type;
 
+/* Union with same sized members, all uint8_t */
 typedef union {
   uint8_t x;
   uint8_t y;
   uint8_t z;
 } ex_Std_8_u ;
 
+/* Union with different sized members */
 typedef union {
   uint8_t array[16];
   uint8_t x;
@@ -81,9 +79,9 @@ typedef union {
 } ex_Std_u ;
 
 typedef struct {
-  int8_t a;
-  int8_t b;
-  int8_t c;
+  int8_t x;
+  int8_t y;
+  int8_t z;
 } Str1_t;
 
 typedef struct {
@@ -92,10 +90,11 @@ typedef struct {
   int32_t z;
 } Str2_t;
 
+/* Union with structures as members, different sizes */
 typedef union {
   Str1_t a;
   Str2_t b;
 } ex_Structs_u ;
 
 
-#endif /* __STRUCT_H__ */
+#endif /* __UNION_H__ */

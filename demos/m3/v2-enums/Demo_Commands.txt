@@ -1,0 +1,8 @@
+Compile with no errors and no optimizations on the enumerations
+  $ gcc -o main.o main.c
+
+Compile with no errors and optimizations on the enumerations
+  $ gcc -o main.o main.c -fshort-enums
+
+Compile with name reuse to show the errors
+  $ gcc -o main.o main.c -DSHOW_ERRROS

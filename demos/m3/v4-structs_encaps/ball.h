@@ -28,16 +28,16 @@ typedef struct {
   uint32_t x;
   uint32_t y;
   uint32_t z;
-} Location;
+} Point_t;
 
 
 typedef struct {
-  Location xyz;
+  Point_t xyz;
   time_t time;
-} Movement;
+} Position;
 
 typedef struct {
-  Movement moves[MAX_NUMBER_MOVES];
+  Movement points[MAX_NUMBER_MOVES];
   uint32_t number;
 } Ball;
 
@@ -61,5 +61,16 @@ void add_move (Ball * ball, Location * loc);
  * @return void
  */
 void clear_movements (Ball * ball);
+
+/**
+ * @brief Calculates the instantaneous velocity of a ball
+ * 
+ * This function will calculate the velocity of a ball in a dimension given
+ *  coordinate pair and a respective time.
+ *
+ * @return velocity of the ball in plan
+ */
+int32_t calculate_instantaneous_velocity(uint32_t v0, uint32_t v1, time_t time);
+
 
 #endif /* __BALL_H__ */
